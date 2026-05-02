@@ -23,6 +23,10 @@ const pencerio = localFont({
   src: "../public/fonts/Pencerio-Hairline.otf",
 });
 
+const getCloudinaryUrl = (filename: string) => {
+  return `https://res.cloudinary.com/dlx51jyma/image/upload/f_auto,q_auto/v1/sumanjeet-portfolio/assets/${filename}`;
+};
+
 const clashDisplay = localFont({
   src: "../public/fonts/ClashDisplay-Regular.otf",
 });
@@ -102,11 +106,11 @@ export default function Home() {
     setTimeout(() => setIsCopied(false), 2000);
   };
   const menuItems = [
-    { link: "#", text: "Visual Stories", image: "/assets/me2.jpg" },
-    { link: "#", text: "Music Films", image: "/assets/me4.jpg" },
-    { link: "#", text: "Cinematics", image: "/assets/me3.jpg" },
-    { link: "#", text: "Direction", image: "/assets/me5.jpg" },
-    { link: "#", text: "Post-Production", image: "/assets/me1.jpg" },
+    { link: "#", text: "Visual Stories", image: getCloudinaryUrl("me2") },
+    { link: "#", text: "Music Films", image: getCloudinaryUrl("me4") },
+    { link: "#", text: "Cinematics", image: getCloudinaryUrl("me3") },
+    { link: "#", text: "Direction", image: getCloudinaryUrl("me5") },
+    { link: "#", text: "Post-Production", image: getCloudinaryUrl("me1") },
   ];
 
   // Services Stacking Animation
@@ -164,7 +168,7 @@ export default function Home() {
 
           <div className="h-12 w-12 relative overflow-hidden rounded-2xl shadow-lg shadow-white/5 transform -rotate-3 hover:rotate-0 transition-all duration-500 border border-white/20 group cursor-pointer">
             <Image
-              src="/assets/me4.jpg"
+              src={getCloudinaryUrl("me4")}
               alt="Logo"
               fill
               className="object-cover"
@@ -198,7 +202,7 @@ export default function Home() {
         {/* Background Image with Cinematic Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/assets/me.jpg"
+            src={getCloudinaryUrl("me")}
             alt="Sumanjeet Prasad"
             fill
             priority
@@ -310,12 +314,12 @@ export default function Home() {
           <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-16">
             {/* Standardized Gallery Items */}
             {[
-              { src: "/assets/me.jpg", alt: "Sumanjeet 1" },
-              { src: "/assets/me1.jpg", alt: "Sumanjeet 2" },
-              { src: "/assets/me2.jpg", alt: "Sumanjeet 3" },
-              { src: "/assets/me3.jpg", alt: "Sumanjeet 4" },
-              { src: "/assets/me4.jpg", alt: "Sumanjeet 5" },
-              { src: "/assets/me5.jpg", alt: "Sumanjeet 6" },
+              { src: getCloudinaryUrl("me"), alt: "Sumanjeet 1" },
+              { src: getCloudinaryUrl("me1"), alt: "Sumanjeet 2" },
+              { src: getCloudinaryUrl("me2"), alt: "Sumanjeet 3" },
+              { src: getCloudinaryUrl("me3"), alt: "Sumanjeet 4" },
+              { src: getCloudinaryUrl("me4"), alt: "Sumanjeet 5" },
+              { src: getCloudinaryUrl("me5"), alt: "Sumanjeet 6" },
             ].map((img, idx) => (
               <div
                 key={idx}
@@ -445,25 +449,25 @@ export default function Home() {
               id: "01",
               title: "Strategy",
               description: "The blueprint for success. We analyze your audience, define your voice, and map out a cinematic path that guarantees engagement and growth from day one.",
-              image: "/assets/me.jpg"
+              image: getCloudinaryUrl("me")
             },
             {
               id: "02",
               title: "Scripting",
               description: "Words that move. We craft compelling narratives, hook-driven scripts, and emotional arcs that transform viewers into loyal community members.",
-              image: "/assets/me1.jpg"
+              image: getCloudinaryUrl("me1")
             },
             {
               id: "03",
               title: "Editing",
               description: "The final cut. High-energy, pace-perfect editing combined with advanced sound design and visual effects to create a world your audience never wants to leave.",
-              image: "/assets/me2.jpg"
+              image: getCloudinaryUrl("me2")
             },
             {
               id: "04",
               title: "Scaling",
               description: "Beyond the views. We implement proven distribution systems and data-driven optimization to scale your reach and turn your content into a high-performance engine.",
-              image: "/assets/me3.jpg"
+              image: getCloudinaryUrl("me3")
             }
           ].map((service, index) => (
             <div 
