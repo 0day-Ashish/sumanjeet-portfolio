@@ -16,12 +16,13 @@ export default function Preloader() {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
-          setTimeout(() => setIsVisible(false), 500);
+          setTimeout(() => setIsVisible(false), 1000);
           return 100;
         }
-        return prev + Math.floor(Math.random() * 10) + 1;
+        // Slower increment for cinematic feel and asset loading time
+        return prev + Math.floor(Math.random() * 5) + 1;
       });
-    }, 100);
+    }, 200);
 
     return () => clearInterval(interval);
   }, []);
