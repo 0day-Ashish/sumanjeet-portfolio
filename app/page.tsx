@@ -102,11 +102,11 @@ export default function Home() {
     setTimeout(() => setIsCopied(false), 2000);
   };
   const menuItems = [
-    { link: "#", text: "Visual Stories", image: "/assets/me2.jpg" },
-    { link: "#", text: "Music Films", image: "/assets/me4.jpg" },
-    { link: "#", text: "Cinematics", image: "/assets/me3.jpg" },
-    { link: "#", text: "Direction", image: "/assets/me5.jpg" },
-    { link: "#", text: "Post-Production", image: "/assets/me1.jpg" },
+    { link: "#works", text: "Visual Stories", image: "/assets/me2.jpg" },
+    { link: "#works", text: "Music Films", image: "/assets/me4.jpg" },
+    { link: "#works", text: "Cinematics", image: "/assets/me3.jpg" },
+    { link: "#works", text: "Direction", image: "/assets/me5.jpg" },
+    { link: "#works", text: "Post-Production", image: "/assets/me1.jpg" },
   ];
 
   // Services Stacking Animation
@@ -158,7 +158,7 @@ export default function Home() {
 
         {/* Desktop Main Nav */}
         <nav className="hidden lg:flex items-center gap-1">
-          <Link href="#" className={`${clashDisplay.className} px-8 py-3 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-[12px] font-normal hover:bg-white/10 hover:border-white/20 transition-all duration-300`}>
+          <Link href="#about" className={`${clashDisplay.className} px-8 py-3 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-[12px] font-normal hover:bg-white/10 hover:border-white/20 transition-all duration-300`}>
             About
           </Link>
 
@@ -229,7 +229,7 @@ export default function Home() {
           {/* Mobile Bottom Nav Section */}
           <div className="lg:hidden absolute top-145 left-1/2 -translate-x-1/2 w-full flex justify-center">
             <nav className="flex items-center gap-3">
-              <Link href="#" className={`${clashDisplay.className} px-6 py-3 bg-white/10 backdrop-blur-xl border border-white/10 rounded-full text-[10px] font-bold tracking-widest uppercase active:scale-95 transition-transform`}>
+              <Link href="#about" className={`${clashDisplay.className} px-6 py-3 bg-white/10 backdrop-blur-xl border border-white/10 rounded-full text-[10px] font-bold tracking-widest uppercase active:scale-95 transition-transform`}>
                 About
               </Link>
 
@@ -242,7 +242,7 @@ export default function Home() {
                 />
               </div>
 
-              <Link href="#" className={`${clashDisplay.className} px-6 py-3 bg-white/10 backdrop-blur-xl border border-white/10 rounded-full text-[10px] font-bold tracking-widest uppercase active:scale-95 transition-transform`}>
+              <Link href="#works" className={`${clashDisplay.className} px-6 py-3 bg-white/10 backdrop-blur-xl border border-white/10 rounded-full text-[10px] font-bold tracking-widest uppercase active:scale-95 transition-transform`}>
                 Work
               </Link>
             </nav>
@@ -259,7 +259,7 @@ export default function Home() {
       </div>
 
       {/* About Typographic Section */}
-      <section className="relative z-10 bg-black py-40 lg:py-64 px-8 lg:px-20 min-h-screen flex flex-col justify-center">
+      <section className="relative z-10 bg-black py-40 lg:py-64 px-8 lg:px-20 min-h-screen flex flex-col justify-center" id="about">
         <RevealOnScroll>
           <div className="flex items-end justify-between w-full mb-12 lg:mb-20 border-b border-white/10 pb-8">
             <h3 className={`${clashDisplay.className} text-4xl lg:text-9xl uppercase tracking-tighter`}>About</h3>
@@ -500,7 +500,7 @@ export default function Home() {
       </section>
 
       {/* Contact / CTA Section */}
-      <section className="relative z-10 bg-black py-10 lg:py-20 px-4 lg:px-10 border-t border-white/5 overflow-hidden">
+      <section className="relative z-10 bg-black py-10 lg:py-20 px-4 lg:px-10 border-t border-white/5 overflow-hidden" id="contact">
         <RevealOnScroll>
           <div className="flex items-end justify-between w-full mb-12 lg:mb-20 px-4 lg:px-10 border-b border-white/10 pb-8">
             <h3 className={`${clashDisplay.className} text-4xl lg:text-9xl uppercase tracking-tighter`}>Contact</h3>
