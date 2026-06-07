@@ -46,7 +46,7 @@ export default function Home() {
   const [isMutedAnushka, setIsMutedAnushka] = useState(true);
   const [isPlayingAnushka, setIsPlayingAnushka] = useState(false);
   const videoRefAnushka = useRef<HTMLVideoElement>(null);
-
+  
   // Sony Music Collab States
   const [isMutedSony, setIsMutedSony] = useState(true);
   const [isPlayingSony, setIsPlayingSony] = useState(false);
@@ -65,7 +65,7 @@ export default function Home() {
         if (videoRef1.current) { videoRef1.current.pause(); setIsPlayingWorks(false); }
         if (videoRef2.current) { videoRef2.current.pause(); setIsPlayingWorks2(false); }
         if (videoRef3.current) { videoRef3.current.pause(); setIsPlayingWorks3(false); }
-
+        
         videoRefAnushka.current.play();
         setIsMutedAnushka(false);
       }
@@ -83,7 +83,7 @@ export default function Home() {
         if (videoRef1.current) { videoRef1.current.pause(); setIsPlayingWorks(false); }
         if (videoRef2.current) { videoRef2.current.pause(); setIsPlayingWorks2(false); }
         if (videoRef3.current) { videoRef3.current.pause(); setIsPlayingWorks3(false); }
-
+        
         videoRefSony.current.play();
         setIsMutedSony(false);
       }
@@ -101,7 +101,7 @@ export default function Home() {
         if (videoRefSony.current) { videoRefSony.current.pause(); setIsPlayingSony(false); }
         if (videoRef2.current) { videoRef2.current.pause(); setIsPlayingWorks2(false); }
         if (videoRef3.current) { videoRef3.current.pause(); setIsPlayingWorks3(false); }
-
+        
         videoRef1.current.play();
         setIsMutedWorks(false);
       }
@@ -119,7 +119,7 @@ export default function Home() {
         if (videoRefSony.current) { videoRefSony.current.pause(); setIsPlayingSony(false); }
         if (videoRef1.current) { videoRef1.current.pause(); setIsPlayingWorks(false); }
         if (videoRef3.current) { videoRef3.current.pause(); setIsPlayingWorks3(false); }
-
+        
         videoRef2.current.play();
         setIsMutedWorks2(false);
       }
@@ -137,7 +137,7 @@ export default function Home() {
         if (videoRefSony.current) { videoRefSony.current.pause(); setIsPlayingSony(false); }
         if (videoRef1.current) { videoRef1.current.pause(); setIsPlayingWorks(false); }
         if (videoRef2.current) { videoRef2.current.pause(); setIsPlayingWorks2(false); }
-
+        
         videoRef3.current.play();
         setIsMutedWorks3(false);
       }
@@ -332,6 +332,11 @@ export default function Home() {
               in your world.
             </h2>
           </div>
+          <div className="mt-16 lg:mt-24 max-w-3xl">
+            <p className={`${clashDisplay.className} text-lg lg:text-2xl text-white/70 leading-relaxed font-light`}>
+              A content strategist and mass communication professional who bridges analytical marketing with evocative visual storytelling. Experienced in end-to-end content production - from ideation and scripting to editing and distribution - with proven results across music, film, and brand campaigns. Comfortable with remote workflows, async collaboration, and deadline-driven delivery.
+            </p>
+          </div>
         </RevealOnScroll>
       </section>
 
@@ -365,7 +370,6 @@ export default function Home() {
               { src: "/assets/me3.jpg", alt: "Sumanjeet 4" },
               { src: "/assets/me4.jpg", alt: "Sumanjeet 5" },
               { src: "/assets/me5.jpg", alt: "Sumanjeet 6" },
-              { src: "/assets/1000691088.jpg", alt: "Sumanjeet 7" },
               { src: "/assets/1000691089.jpg", alt: "Sumanjeet 8" },
             ].map((img, idx) => (
               <div
