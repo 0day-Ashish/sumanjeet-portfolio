@@ -38,15 +38,40 @@ export default function Home() {
   const [isMuted, setIsMuted] = useState(true);
   const [isMutedWorks, setIsMutedWorks] = useState(true);
   const [isMutedWorks2, setIsMutedWorks2] = useState(true);
+  const [isMutedWorks3, setIsMutedWorks3] = useState(true);
   const [isPlayingWorks, setIsPlayingWorks] = useState(false);
   const [isPlayingWorks2, setIsPlayingWorks2] = useState(false);
-  
+  const [isPlayingWorks3, setIsPlayingWorks3] = useState(false);
+  // Anushka Tyagi States
+  const [isMutedAnushka, setIsMutedAnushka] = useState(true);
+  const [isPlayingAnushka, setIsPlayingAnushka] = useState(false);
+  const videoRefAnushka = useRef<HTMLVideoElement>(null);
+
   // Sony Music Collab States
   const [isMutedSony, setIsMutedSony] = useState(true);
   const [isPlayingSony, setIsPlayingSony] = useState(false);
   const videoRefSony = useRef<HTMLVideoElement>(null);
   const videoRef1 = useRef<HTMLVideoElement>(null);
   const videoRef2 = useRef<HTMLVideoElement>(null);
+  const videoRef3 = useRef<HTMLVideoElement>(null);
+
+  const togglePlayAnushka = () => {
+    if (videoRefAnushka.current) {
+      if (isPlayingAnushka) {
+        videoRefAnushka.current.pause();
+      } else {
+        // Pause others
+        if (videoRefSony.current) { videoRefSony.current.pause(); setIsPlayingSony(false); }
+        if (videoRef1.current) { videoRef1.current.pause(); setIsPlayingWorks(false); }
+        if (videoRef2.current) { videoRef2.current.pause(); setIsPlayingWorks2(false); }
+        if (videoRef3.current) { videoRef3.current.pause(); setIsPlayingWorks3(false); }
+
+        videoRefAnushka.current.play();
+        setIsMutedAnushka(false);
+      }
+      setIsPlayingAnushka(!isPlayingAnushka);
+    }
+  };
 
   const togglePlaySony = () => {
     if (videoRefSony.current) {
@@ -54,9 +79,11 @@ export default function Home() {
         videoRefSony.current.pause();
       } else {
         // Pause others
+        if (videoRefAnushka.current) { videoRefAnushka.current.pause(); setIsPlayingAnushka(false); }
         if (videoRef1.current) { videoRef1.current.pause(); setIsPlayingWorks(false); }
         if (videoRef2.current) { videoRef2.current.pause(); setIsPlayingWorks2(false); }
-        
+        if (videoRef3.current) { videoRef3.current.pause(); setIsPlayingWorks3(false); }
+
         videoRefSony.current.play();
         setIsMutedSony(false);
       }
@@ -70,9 +97,11 @@ export default function Home() {
         videoRef1.current.pause();
       } else {
         // Pause others
+        if (videoRefAnushka.current) { videoRefAnushka.current.pause(); setIsPlayingAnushka(false); }
         if (videoRefSony.current) { videoRefSony.current.pause(); setIsPlayingSony(false); }
         if (videoRef2.current) { videoRef2.current.pause(); setIsPlayingWorks2(false); }
-        
+        if (videoRef3.current) { videoRef3.current.pause(); setIsPlayingWorks3(false); }
+
         videoRef1.current.play();
         setIsMutedWorks(false);
       }
@@ -86,13 +115,33 @@ export default function Home() {
         videoRef2.current.pause();
       } else {
         // Pause others
+        if (videoRefAnushka.current) { videoRefAnushka.current.pause(); setIsPlayingAnushka(false); }
         if (videoRefSony.current) { videoRefSony.current.pause(); setIsPlayingSony(false); }
         if (videoRef1.current) { videoRef1.current.pause(); setIsPlayingWorks(false); }
-        
+        if (videoRef3.current) { videoRef3.current.pause(); setIsPlayingWorks3(false); }
+
         videoRef2.current.play();
         setIsMutedWorks2(false);
       }
       setIsPlayingWorks2(!isPlayingWorks2);
+    }
+  };
+
+  const togglePlay3 = () => {
+    if (videoRef3.current) {
+      if (isPlayingWorks3) {
+        videoRef3.current.pause();
+      } else {
+        // Pause others
+        if (videoRefAnushka.current) { videoRefAnushka.current.pause(); setIsPlayingAnushka(false); }
+        if (videoRefSony.current) { videoRefSony.current.pause(); setIsPlayingSony(false); }
+        if (videoRef1.current) { videoRef1.current.pause(); setIsPlayingWorks(false); }
+        if (videoRef2.current) { videoRef2.current.pause(); setIsPlayingWorks2(false); }
+
+        videoRef3.current.play();
+        setIsMutedWorks3(false);
+      }
+      setIsPlayingWorks3(!isPlayingWorks3);
     }
   };
 
@@ -132,9 +181,9 @@ export default function Home() {
       // Animate each card stacking (starting from the second card)
       cards.forEach((card, index) => {
         if (index === 0) return;
-        
-        tl.fromTo(card, 
-          { y: "120vh" }, 
+
+        tl.fromTo(card,
+          { y: "120vh" },
           { y: 0, ease: "none" },
           index - 1 // staggered start
         );
@@ -181,7 +230,7 @@ export default function Home() {
           <Link href="mailto:imperfecttcircle@gmail.com" className={`${clashDisplay.className} px-5 py-2.5 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-[11px] font-normal hover:bg-white/10 hover:border-white/20 transition-all duration-300`}>
             Email
           </Link>
-          <Link href="#" className={`${clashDisplay.className} px-4 py-2.5 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-[11px] font-normal hover:bg-white/10 hover:border-white/20 transition-all duration-300 opacity-60 hover:opacity-100`}>
+          <Link href="https://www.linkedin.com/in/sumanjeet-prasad-8a142631b/" className={`${clashDisplay.className} px-4 py-2.5 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-[11px] font-normal hover:bg-white/10 hover:border-white/20 transition-all duration-300 opacity-60 hover:opacity-100`}>
             In
           </Link>
           <Link href="https://www.instagram.com/sumanjeet.prssd/" target="_blank" className={`${clashDisplay.className} px-4 py-2.5 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-[11px] font-normal hover:bg-white/10 hover:border-white/20 transition-all duration-300 opacity-60 hover:opacity-100`}>
@@ -316,6 +365,8 @@ export default function Home() {
               { src: "/assets/me3.jpg", alt: "Sumanjeet 4" },
               { src: "/assets/me4.jpg", alt: "Sumanjeet 5" },
               { src: "/assets/me5.jpg", alt: "Sumanjeet 6" },
+              { src: "/assets/1000691088.jpg", alt: "Sumanjeet 7" },
+              { src: "/assets/1000691089.jpg", alt: "Sumanjeet 8" },
             ].map((img, idx) => (
               <div
                 key={idx}
@@ -343,14 +394,43 @@ export default function Home() {
             <span className={`${clashDisplay.className} text-xl lg:text-3xl font-medium opacity-60`}>( 02 )</span>
           </div>
 
+          {/* Anushka Tyagi Highlight (Portrait) */}
+          <div className="mb-32 lg:mb-48 flex flex-col items-center">
+            <div className="w-full flex justify-between items-end mb-8">
+              <h4 className={`${clashDisplay.className} text-xl lg:text-4xl uppercase tracking-tight`}>Anushka Tyagi</h4>
+              <span className={`${clashDisplay.className} text-xs lg:text-sm opacity-40 uppercase tracking-[0.2em]`}>Featured Collaborations</span>
+            </div>
+
+            <div
+              className="relative w-full max-w-[400px] lg:max-w-[500px] aspect-[9/16] rounded-[2.5rem] lg:rounded-[3.5rem] overflow-hidden group shadow-[0_0_80px_rgba(255,255,255,0.05)] border border-white/10 bg-white/5 cursor-pointer"
+              onClick={togglePlayAnushka}
+            >
+              <video
+                ref={videoRefAnushka}
+                muted={isMutedAnushka}
+                loop
+                playsInline
+                className="w-full h-full object-cover"
+              >
+                <source src="https://res.cloudinary.com/dfbhwxfxj/video/upload/v1780837739/jsragfrgo7wmxvd4ys3h.mp4" type="video/mp4" />
+              </video>
+
+              {/* Central Toggle Button Overlay */}
+              <div className={`absolute inset-0 z-30 flex items-center justify-center transition-all duration-500 ${isPlayingAnushka ? "bg-transparent opacity-0 group-hover:opacity-100 group-hover:bg-black/20" : "bg-black/30 opacity-100"}`}>
+                <div className="p-10 lg:p-14 bg-white/10 backdrop-blur-2xl border border-white/20 rounded-full text-white scale-90 transition-all duration-700">
+                  {isPlayingAnushka ? <Pause size={40} fill="white" /> : <Play size={40} fill="white" className="ml-1" />}
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Sony Music Collab Highlight (Portrait) */}
           <div className="mb-32 lg:mb-48 flex flex-col items-center">
             <div className="w-full flex justify-between items-end mb-8">
               <h4 className={`${clashDisplay.className} text-xl lg:text-4xl uppercase tracking-tight`}>Sony Music Bangla</h4>
-              <span className={`${clashDisplay.className} text-xs lg:text-sm opacity-40 uppercase tracking-[0.2em]`}>Featured Collaboration</span>
             </div>
-            
-            <div 
+
+            <div
               className="relative w-full max-w-[400px] lg:max-w-[500px] aspect-[9/16] rounded-[2.5rem] lg:rounded-[3.5rem] overflow-hidden group shadow-[0_0_80px_rgba(255,255,255,0.05)] border border-white/10 bg-white/5 cursor-pointer"
               onClick={togglePlaySony}
             >
@@ -380,7 +460,7 @@ export default function Home() {
               <span className={`${clashDisplay.className} text-xs lg:text-sm opacity-40 uppercase tracking-[0.2em]`}>Reels</span>
             </div>
 
-            <div 
+            <div
               className="relative w-full aspect-video rounded-[2rem] lg:rounded-[3rem] overflow-hidden group shadow-2xl border border-white/5 bg-white/5 cursor-pointer"
               onClick={togglePlay1}
             >
@@ -405,7 +485,7 @@ export default function Home() {
 
           {/* Works Section Video 2 */}
           <div className="mb-20 lg:mb-40">
-            <div 
+            <div
               className="relative w-full aspect-video rounded-[2rem] lg:rounded-[3rem] overflow-hidden group shadow-2xl border border-white/5 bg-white/5 mt-12 cursor-pointer"
               onClick={togglePlay2}
             >
@@ -416,13 +496,38 @@ export default function Home() {
                 playsInline
                 className="w-full h-full object-cover"
               >
-                <source src="https://res.cloudinary.com/dlx51jyma/video/upload/v1777731696/sumanjeet-portfolio/projects/Video-550.mp4" type="video/mp4" />
+                <source src="https://res.cloudinary.com/dfbhwxfxj/video/upload/v1780837895/j80uskakejllsjhq4xbq.mp4" />
               </video>
 
               {/* Central Toggle Button Overlay */}
               <div className={`absolute inset-0 z-30 flex items-center justify-center transition-all duration-500 ${isPlayingWorks2 ? "bg-transparent opacity-0 group-hover:opacity-100 group-hover:bg-black/20" : "bg-black/30 opacity-100"}`}>
                 <div className="p-10 lg:p-14 bg-white/10 backdrop-blur-2xl border border-white/20 rounded-full text-white scale-90 transition-all duration-700">
                   {isPlayingWorks2 ? <Pause size={40} fill="white" /> : <Play size={40} fill="white" className="ml-1" />}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Works Section Video 3 */}
+          <div className="mb-32 lg:mb-48 flex flex-col items-center">
+            <div
+              className="relative w-full max-w-[400px] lg:max-w-[500px] aspect-[9/16] rounded-[2.5rem] lg:rounded-[3.5rem] overflow-hidden group shadow-[0_0_80px_rgba(255,255,255,0.05)] border border-white/10 bg-white/5 cursor-pointer"
+              onClick={togglePlay3}
+            >
+              <video
+                ref={videoRef3}
+                muted={isMutedWorks3}
+                loop
+                playsInline
+                className="w-full h-full object-cover"
+              >
+                <source src="https://res.cloudinary.com/dfbhwxfxj/video/upload/v1780838053/sptml3focydnbsckp1cc.mp4" />
+              </video>
+
+              {/* Central Toggle Button Overlay */}
+              <div className={`absolute inset-0 z-30 flex items-center justify-center transition-all duration-500 ${isPlayingWorks3 ? "bg-transparent opacity-0 group-hover:opacity-100 group-hover:bg-black/20" : "bg-black/30 opacity-100"}`}>
+                <div className="p-10 lg:p-14 bg-white/10 backdrop-blur-2xl border border-white/20 rounded-full text-white scale-90 transition-all duration-700">
+                  {isPlayingWorks3 ? <Pause size={40} fill="white" /> : <Play size={40} fill="white" className="ml-1" />}
                 </div>
               </div>
             </div>
@@ -466,8 +571,8 @@ export default function Home() {
               image: "/assets/me3.jpg"
             }
           ].map((service, index) => (
-            <div 
-              key={service.id} 
+            <div
+              key={service.id}
               className={`service-card w-full h-[60vh] lg:h-full bg-[#0a0a0a] border border-white/10 rounded-[2.5rem] lg:rounded-[4rem] p-8 lg:p-20 shadow-[0_-20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 hover:border-white/20 relative lg:absolute lg:inset-0`}
             >
               <div className="flex flex-col lg:grid lg:grid-cols-2 h-full gap-12 lg:gap-20">
@@ -485,10 +590,10 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="relative w-full aspect-square lg:h-full rounded-[1.5rem] lg:rounded-[2.5rem] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
-                  <Image 
-                    src={service.image} 
-                    alt={service.title} 
-                    fill 
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
@@ -569,7 +674,7 @@ export default function Home() {
               <h4 className={`${clashDisplay.className} text-white font-bold mb-6 text-sm lg:text-base uppercase tracking-widest`}>Socials</h4>
               <ul className={`${clashDisplay.className} flex flex-col gap-3 text-white/40 text-sm lg:text-base`}>
                 <li><Link href="https://www.instagram.com/sumanjeet.prssd/" target="_blank" className="hover:text-white transition-colors">Instagram</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">LinkedIn</Link></li>
+                <li><Link href="https://www.linkedin.com/in/sumanjeet-prasad-8a142631b/" className="hover:text-white transition-colors">LinkedIn</Link></li>
                 <li><Link href="#" className="hover:text-white transition-colors">Behance</Link></li>
               </ul>
             </div>
