@@ -6,6 +6,8 @@
 
 @theme {
   --font-sans: "Inter", "Geist Sans", sans-serif;
+  --font-armelie: var(--font-armelie);
+  --font-hunders: var(--font-hunders);
   --color-brand-cream: #f5e6d3;
   --color-brand-muted: #a1a1aa;
 }

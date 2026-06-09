@@ -27,6 +27,14 @@ const clashDisplay = localFont({
   src: "../public/fonts/ClashDisplay-Regular.otf",
 });
 
+const armelie = localFont({
+  src: "../public/fonts/Armelie-Regular.otf",
+});
+
+const hunders = localFont({
+  src: "../public/fonts/Hunders.ttf",
+});
+
 import RevealOnScroll from "./components/RevealOnScroll";
 import TextType from "@/components/TextType";
 import FlowingMenu from "@/components/FlowingMenu";
@@ -263,8 +271,8 @@ export default function Home() {
           {/* Hero Description */}
           <div className="mt-24 max-w-full flex justify-start lg:justify-start">
             <h2 className="text-4xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight text-start lg:text-left">
-              <span className={`${rowan.className} font-normal`}>Creative</span><br />
-              <span className={`${rowan.className} font-normal`}>Director</span> &amp;<span className={`${pencerio.className} font-normal`}> Editor</span>
+              <span className={`${armelie.className} font-normal`}>Creative</span><br />
+              <span className={`${armelie.className} font-normal`}>Director</span> &amp;<span className={`${hunders.className} font-normal tracking-wide lg:text-[5.5rem] text-[3.5rem]`}> Editor</span>
             </h2>
           </div>
 
