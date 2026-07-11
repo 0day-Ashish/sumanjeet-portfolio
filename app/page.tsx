@@ -396,7 +396,7 @@ export default function Home() {
                   <div key={listIdx} className="flex gap-6 flex-shrink-0">
                     {[
                       { src: "https://res.cloudinary.com/dfbhwxfxj/video/upload/v1780837739/jsragfrgo7wmxvd4ys3h.mp4" },
-                      { src: "/projects/Video-255.mp4" },
+                      { src: "https://res.cloudinary.com/dfbhwxfxj/video/upload/v1783797192/cx1uwkheepemtynfjtl9.mp4" },
                       { src: "https://res.cloudinary.com/dlx51jyma/video/upload/v1777731813/sumanjeet-portfolio/projects/Video-972.mp4" },
                       { src: "https://res.cloudinary.com/dlx51jyma/video/upload/v1777731682/sumanjeet-portfolio/projects/Video-481.mp4" },
                       { src: "https://res.cloudinary.com/dfbhwxfxj/video/upload/v1780837895/j80uskakejllsjhq4xbq.mp4" },
@@ -523,7 +523,7 @@ export default function Home() {
                 playsInline
                 className="w-full h-full object-cover"
               >
-                <source src="/projects/Video-255.mp4" type="video/mp4" />
+                <source src="https://res.cloudinary.com/dfbhwxfxj/video/upload/v1783797192/cx1uwkheepemtynfjtl9.mp4" type="video/mp4" />
               </video>
 
               {/* Central Toggle Button Overlay */}
