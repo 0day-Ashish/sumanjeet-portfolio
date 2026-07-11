@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import localFont from "next/font/local";
+import { Instrument_Serif } from "next/font/google";
 
 import Preloader from "./components/Preloader";
 import gsap from "gsap";
@@ -33,6 +34,12 @@ const armelie = localFont({
 
 const hunders = localFont({
   src: "../public/fonts/Hunders.ttf",
+});
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
 });
 
 import RevealOnScroll from "./components/RevealOnScroll";
@@ -272,7 +279,7 @@ export default function Home() {
           <div className="mt-24 max-w-full flex justify-start lg:justify-start">
             <h2 className="text-4xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight text-start lg:text-left">
               <span className={`${armelie.className} font-normal`}>Creative</span><br />
-              <span className={`${armelie.className} font-normal`}>Director</span> &amp;<span className={`${hunders.className} font-normal tracking-wide lg:text-[5.5rem] text-[3.5rem]`}> Editor</span>
+              <span className={`${armelie.className} font-normal`}>Director</span> <span className={`${instrumentSerif.className} italic font-normal lg:text-[5.5rem] text-[3.5rem]`}>&amp; Editor</span>
             </h2>
           </div>
 
@@ -344,6 +351,39 @@ export default function Home() {
             <p className={`${clashDisplay.className} text-lg lg:text-2xl text-white/70 leading-relaxed font-light`}>
               A content strategist and mass communication professional who bridges analytical marketing with evocative visual storytelling. Experienced in end-to-end content production - from ideation and scripting to editing and distribution - with proven results across music, film, and brand campaigns. Comfortable with remote workflows, async collaboration, and deadline-driven delivery.
             </p>
+          </div>
+
+          {/* Video Marquee */}
+          <div className="mt-16 lg:mt-24 w-full">
+            <div className="marquee-container py-4">
+              <div className="marquee-content flex flex-row flex-nowrap w-max gap-6">
+                {[...Array(2)].map((_, listIdx) => (
+                  <div key={listIdx} className="flex gap-6 flex-shrink-0">
+                    {[
+                      { src: "https://res.cloudinary.com/dfbhwxfxj/video/upload/v1780837739/jsragfrgo7wmxvd4ys3h.mp4" },
+                      { src: "https://res.cloudinary.com/dlx51jyma/video/upload/v1777731813/sumanjeet-portfolio/projects/Video-972.mp4" },
+                      { src: "https://res.cloudinary.com/dlx51jyma/video/upload/v1777731682/sumanjeet-portfolio/projects/Video-481.mp4" },
+                      { src: "https://res.cloudinary.com/dfbhwxfxj/video/upload/v1780837895/j80uskakejllsjhq4xbq.mp4" },
+                      { src: "https://res.cloudinary.com/dfbhwxfxj/video/upload/v1780838053/sptml3focydnbsckp1cc.mp4" }
+                    ].map((video, idx) => (
+                      <div 
+                        key={idx}
+                        className="marquee-item relative h-80 lg:h-[30rem] aspect-[9/16] rounded-3xl overflow-hidden border border-white/10 bg-white/5 flex-shrink-0"
+                      >
+                        <video
+                          src={video.src}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="w-full h-full object-cover pointer-events-none"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </RevealOnScroll>
       </section>

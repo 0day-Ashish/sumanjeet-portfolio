@@ -161,3 +161,43 @@ html.lenis body {
     @apply font-sans;
   }
 }
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-container {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.marquee-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: max-content;
+  gap: 1.5rem;
+  animation: marquee 35s linear infinite;
+}
+
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.5s ease;
+}
+
+.marquee-item:hover {
+  transform: scale(1.04);
+  border-color: rgba(255, 255, 255, 0.4);
+}
