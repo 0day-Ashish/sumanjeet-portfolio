@@ -9,7 +9,7 @@ cloudinary.config({
 });
 
 // The path to the file you want to upload
-const filePath = "./public/projects/Video-101.mp4"; 
+const filePath = "./public/projects/Video-255.mp4"; 
 
 console.log("Uploading to Cloudinary...");
 
