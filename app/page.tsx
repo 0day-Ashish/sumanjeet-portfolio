@@ -61,6 +61,11 @@ export default function Home() {
   const [isMutedAnushka, setIsMutedAnushka] = useState(true);
   const [isPlayingAnushka, setIsPlayingAnushka] = useState(false);
   const videoRefAnushka = useRef<HTMLVideoElement>(null);
+
+  // Anushka Tyagi 2 States
+  const [isMutedAnushka2, setIsMutedAnushka2] = useState(true);
+  const [isPlayingAnushka2, setIsPlayingAnushka2] = useState(false);
+  const videoRefAnushka2 = useRef<HTMLVideoElement>(null);
   
   // Sony Music Collab States
   const [isMutedSony, setIsMutedSony] = useState(true);
@@ -76,6 +81,7 @@ export default function Home() {
         videoRefAnushka.current.pause();
       } else {
         // Pause others
+        if (videoRefAnushka2.current) { videoRefAnushka2.current.pause(); setIsPlayingAnushka2(false); }
         if (videoRefSony.current) { videoRefSony.current.pause(); setIsPlayingSony(false); }
         if (videoRef1.current) { videoRef1.current.pause(); setIsPlayingWorks(false); }
         if (videoRef2.current) { videoRef2.current.pause(); setIsPlayingWorks2(false); }
@@ -88,6 +94,25 @@ export default function Home() {
     }
   };
 
+  const togglePlayAnushka2 = () => {
+    if (videoRefAnushka2.current) {
+      if (isPlayingAnushka2) {
+        videoRefAnushka2.current.pause();
+      } else {
+        // Pause others
+        if (videoRefAnushka.current) { videoRefAnushka.current.pause(); setIsPlayingAnushka(false); }
+        if (videoRefSony.current) { videoRefSony.current.pause(); setIsPlayingSony(false); }
+        if (videoRef1.current) { videoRef1.current.pause(); setIsPlayingWorks(false); }
+        if (videoRef2.current) { videoRef2.current.pause(); setIsPlayingWorks2(false); }
+        if (videoRef3.current) { videoRef3.current.pause(); setIsPlayingWorks3(false); }
+        
+        videoRefAnushka2.current.play();
+        setIsMutedAnushka2(false);
+      }
+      setIsPlayingAnushka2(!isPlayingAnushka2);
+    }
+  };
+
   const togglePlaySony = () => {
     if (videoRefSony.current) {
       if (isPlayingSony) {
@@ -95,6 +120,7 @@ export default function Home() {
       } else {
         // Pause others
         if (videoRefAnushka.current) { videoRefAnushka.current.pause(); setIsPlayingAnushka(false); }
+        if (videoRefAnushka2.current) { videoRefAnushka2.current.pause(); setIsPlayingAnushka2(false); }
         if (videoRef1.current) { videoRef1.current.pause(); setIsPlayingWorks(false); }
         if (videoRef2.current) { videoRef2.current.pause(); setIsPlayingWorks2(false); }
         if (videoRef3.current) { videoRef3.current.pause(); setIsPlayingWorks3(false); }
@@ -113,6 +139,7 @@ export default function Home() {
       } else {
         // Pause others
         if (videoRefAnushka.current) { videoRefAnushka.current.pause(); setIsPlayingAnushka(false); }
+        if (videoRefAnushka2.current) { videoRefAnushka2.current.pause(); setIsPlayingAnushka2(false); }
         if (videoRefSony.current) { videoRefSony.current.pause(); setIsPlayingSony(false); }
         if (videoRef2.current) { videoRef2.current.pause(); setIsPlayingWorks2(false); }
         if (videoRef3.current) { videoRef3.current.pause(); setIsPlayingWorks3(false); }
@@ -131,6 +158,7 @@ export default function Home() {
       } else {
         // Pause others
         if (videoRefAnushka.current) { videoRefAnushka.current.pause(); setIsPlayingAnushka(false); }
+        if (videoRefAnushka2.current) { videoRefAnushka2.current.pause(); setIsPlayingAnushka2(false); }
         if (videoRefSony.current) { videoRefSony.current.pause(); setIsPlayingSony(false); }
         if (videoRef1.current) { videoRef1.current.pause(); setIsPlayingWorks(false); }
         if (videoRef3.current) { videoRef3.current.pause(); setIsPlayingWorks3(false); }
@@ -149,6 +177,7 @@ export default function Home() {
       } else {
         // Pause others
         if (videoRefAnushka.current) { videoRefAnushka.current.pause(); setIsPlayingAnushka(false); }
+        if (videoRefAnushka2.current) { videoRefAnushka2.current.pause(); setIsPlayingAnushka2(false); }
         if (videoRefSony.current) { videoRefSony.current.pause(); setIsPlayingSony(false); }
         if (videoRef1.current) { videoRef1.current.pause(); setIsPlayingWorks(false); }
         if (videoRef2.current) { videoRef2.current.pause(); setIsPlayingWorks2(false); }
@@ -245,15 +274,21 @@ export default function Home() {
           <Link href="mailto:imperfecttcircle@gmail.com" className={`${clashDisplay.className} px-5 py-2.5 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-[11px] font-normal hover:bg-white/10 hover:border-white/20 transition-all duration-300`}>
             Email
           </Link>
-          <Link href="https://www.linkedin.com/in/sumanjeet-prasad-8a142631b/" className={`${clashDisplay.className} px-4 py-2.5 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-[11px] font-normal hover:bg-white/10 hover:border-white/20 transition-all duration-300 opacity-60 hover:opacity-100`}>
-            In
+          <Link href="https://www.linkedin.com/in/sumanjeet-prasad-8a142631b/" className={`${clashDisplay.className} px-4 py-2.5 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-[11px] font-normal hover:bg-white/10 hover:border-white/20 transition-all duration-300 opacity-60 hover:opacity-100 flex items-center justify-center`}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect width="4" height="12" x="2" y="9" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
           </Link>
-          <Link href="https://www.instagram.com/sumanjeet.prssd/" target="_blank" className={`${clashDisplay.className} px-4 py-2.5 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-[11px] font-normal hover:bg-white/10 hover:border-white/20 transition-all duration-300 opacity-60 hover:opacity-100`}>
-            Ig
+          <Link href="https://www.instagram.com/sumanjeet.prssd/" target="_blank" className={`${clashDisplay.className} px-4 py-2.5 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-[11px] font-normal hover:bg-white/10 hover:border-white/20 transition-all duration-300 opacity-60 hover:opacity-100 flex items-center justify-center`}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+            </svg>
           </Link>
-          <Link href="#" className={`${clashDisplay.className} px-4 py-2.5 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-[11px] font-normal hover:bg-white/10 hover:border-white/20 transition-all duration-300 opacity-60 hover:opacity-100`}>
-            Be
-          </Link>
+
         </div>
       </header>
 
@@ -361,6 +396,7 @@ export default function Home() {
                   <div key={listIdx} className="flex gap-6 flex-shrink-0">
                     {[
                       { src: "https://res.cloudinary.com/dfbhwxfxj/video/upload/v1780837739/jsragfrgo7wmxvd4ys3h.mp4" },
+                      { src: "/projects/Video-255.mp4" },
                       { src: "https://res.cloudinary.com/dlx51jyma/video/upload/v1777731813/sumanjeet-portfolio/projects/Video-972.mp4" },
                       { src: "https://res.cloudinary.com/dlx51jyma/video/upload/v1777731682/sumanjeet-portfolio/projects/Video-481.mp4" },
                       { src: "https://res.cloudinary.com/dfbhwxfxj/video/upload/v1780837895/j80uskakejllsjhq4xbq.mp4" },
@@ -471,6 +507,29 @@ export default function Home() {
               <div className={`absolute inset-0 z-30 flex items-center justify-center transition-all duration-500 ${isPlayingAnushka ? "bg-transparent opacity-0 group-hover:opacity-100 group-hover:bg-black/20" : "bg-black/30 opacity-100"}`}>
                 <div className="p-10 lg:p-14 bg-white/10 backdrop-blur-2xl border border-white/20 rounded-full text-white scale-90 transition-all duration-700">
                   {isPlayingAnushka ? <Pause size={40} fill="white" /> : <Play size={40} fill="white" className="ml-1" />}
+                </div>
+              </div>
+            </div>
+
+            {/* Second Anushka Tyagi Video */}
+            <div
+              className="relative w-full max-w-[400px] lg:max-w-[500px] aspect-[9/16] rounded-[2.5rem] lg:rounded-[3.5rem] overflow-hidden group shadow-[0_0_80px_rgba(255,255,255,0.05)] border border-white/10 bg-white/5 cursor-pointer mt-12 lg:mt-16"
+              onClick={togglePlayAnushka2}
+            >
+              <video
+                ref={videoRefAnushka2}
+                muted={isMutedAnushka2}
+                loop
+                playsInline
+                className="w-full h-full object-cover"
+              >
+                <source src="/projects/Video-255.mp4" type="video/mp4" />
+              </video>
+
+              {/* Central Toggle Button Overlay */}
+              <div className={`absolute inset-0 z-30 flex items-center justify-center transition-all duration-500 ${isPlayingAnushka2 ? "bg-transparent opacity-0 group-hover:opacity-100 group-hover:bg-black/20" : "bg-black/30 opacity-100"}`}>
+                <div className="p-10 lg:p-14 bg-white/10 backdrop-blur-2xl border border-white/20 rounded-full text-white scale-90 transition-all duration-700">
+                  {isPlayingAnushka2 ? <Pause size={40} fill="white" /> : <Play size={40} fill="white" className="ml-1" />}
                 </div>
               </div>
             </div>
